@@ -20,7 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Service\Constant:
+    App\Service\ConstantService:
       autowire: true # Automatically injects dependencies
 
     # add more service definitions when explicit configuration is needed

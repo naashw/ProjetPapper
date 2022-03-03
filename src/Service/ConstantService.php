@@ -3,8 +3,7 @@
 namespace App\Service;
 
 
-
-class Constant
+class ConstantService
 {
 
   function __construct(){

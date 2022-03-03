@@ -4,7 +4,7 @@ namespace App\Service;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Config\FileLocator;
-use App\Service\Constant;
+use App\Service\ConstantService;
 
 class CallApiService
 {
@@ -13,7 +13,7 @@ class CallApiService
   private $search;
   private $constant;
 
-  public function __construct(HttpClientInterface $client, HttpClientInterface $insee_api, Constant $constant)
+  public function __construct(HttpClientInterface $client, HttpClientInterface $insee_api, ConstantService $constant)
   {
     $this->client = $client;
     $this->inseeApi = $insee_api;
