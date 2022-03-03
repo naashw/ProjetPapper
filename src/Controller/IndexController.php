@@ -11,8 +11,10 @@ class IndexController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(): Response
     {
+              // code execution continues immediately; it doesn't wait to receive the response
+
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+            'controller_name' => 'IndexController'
         ]);
     }
 }

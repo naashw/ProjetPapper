@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RechercheController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .rounded-30 { border-radius:30px; }
+</style>
+
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Info société</span>
+      </a>
+    </header>
+
+    <div class="p-5 mb-4 bg-light rounded-3 ">
+      <div class="container-fluid py-5  ">
+
+      <div class="row justify-content-md-center">
+        <div class="col-auto">
+          <h1 class="display-5 fw-bold text-center">Toute l'information des entreprises</h1>
+          <p class="col-md-12 fs-4 text-center">Gratuite, intelligente, complète</p>
+        </div>
+      </div>
+
+        <div class="row justify-content-md-center">
+          <div class="col-6">
+
+            <form class="input-group input-group-lg mb-3 " action="{{ path("recherchebyparam") }}" method="get">
+              <input type="text" class="form-control" name="input" value="{{inputText}}">  </input>
+              <div class="input-group-append input-group-lg">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+<div class="container py-4">
+
+{% if entrepriseList|length > 0 %}
+
+  {% for key,entreprise in entrepriseList %}
+
+
+      <div class="p-5 mb-4 bg-light rounded-30">
+        <div class="row">
+          <div class="col-auto">
+          <a href="/entreprise/{{entreprise.siren}}" class="text-reset text-decoration-none">
+            <h2 class=" fw-bold ">{{ key }}</h2>
+            <p class=" fw-bold">N°SIREN : {{entreprise.siren }} </p>
+          </a>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-3 col-sm-12">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-secondary">Forme juridique </li>
+                  <li>{{entreprise.categorieJuridiqueDescription }}</li>
+                  <li class="text-secondary">Catégorie : {{ entreprise.categorieJuridique }}</li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-secondary">Activité principale </li>
+                  <li>{{entreprise.activitePrincipaleDescription}}</li>
+                  <li class="text-secondary" > Code NAF : {{entreprise.activitePrincipale}}</li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-secondary" >Effectifs </li>
+                  {% if entreprise.trancheEffectifsDescription is not empty %}
+                  <li>De {{entreprise.trancheEffectifsDescription}} salariés</li>
+                  {% else %}
+                  <li>0 salarié</li>
+                  {% endif %}
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-secondary">Adresse </li>
+                  <li> {{entreprise.adresseEtablissement.numeroVoieEtablissement }} {{entreprise.adresseEtablissement.typeVoieEtablissement}} {{entreprise.adresseEtablissement.libelleVoieEtablissement}} {{entreprise.adresseEtablissement.codePostalEtablissement}} {{entreprise.adresseEtablissement.libelleCommuneEtablissement}}</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+
+  {% endfor %}
+
+{% else %}
+    <div class="p-5 mb-4 bg-light rounded-3 ">
+      <div class="row">
+        <div class="col-auto">
+          <h2 class=" fw-bold text-danger ">Aucun résultats trouvés </h2>
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+
+
+
+
+
+    <footer class="py-3 text-muted border-top fixed-bottom container">
+      © Hasan Taskin - 2022
+    </footer>
+</div>
+
+
+{% endblock %}

@@ -19,7 +19,12 @@ framework:
 
     http_client:
         max_host_connections: 10
-        # ...
+        scoped_clients:
+            insee_api:
+                base_uri: 'https://api.insee.fr/'
+
+                # HTTP Bearer authentication (also called token authentication)
+                auth_bearer: '%env(BEARER_TOKEN_INSEE_API)%'
 
 when@test:
     framework:
