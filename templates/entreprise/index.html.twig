@@ -2,70 +2,27 @@
 
 {% block title %}Hello EntrepriseController!{% endblock %}
 
+{% block stylesheet %}
+dza
+{% endblock %}
+
 {% block body %}
-  <style>
-    .example-wrapper {
-      margin: 1em auto;
-      max-width: 800px;
-      width: 95%;
-      font: 18px/1.5 sans-serif;
-    }
-    .example-wrapper code {
-      background: #F5F5F5;
-      padding: 2px 6px;
-    }
-    .header-div {
-      height: 65vh;
-      weight: 100vw;
-      padding: 2rem;
-      background: #ffffff;
-    }
-    .header-interior {
-      height: 80%;
-      width: 80%;
-      margin: auto;
-      background: #000000;
-      display: flex;
-      align-self: center;
-    }
-    .bg-cyan {
-      background: #5585D3;
-    }
-    .text-h1 {
-      font-size: 2.8rem;
-      font-weight: 500;
-    }
-    .text-h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: #858585;
-    }
-
-    .information-juridique-title {
-      font-size: 1.3rem;
-      color: #5585D3;
-    }
-    .information-juridique-text {
-      font-size: 1rem;
-      color: #000000;
-    }
-
-  </style>
 
 
-      <header class="pb-3 mb-4 border-bottom container">
+<div class="container-fluid py-4 ">
+      <header class=" pb-3 mb-4 border-bottom container ">
         <div class="row">
           <div class="col-3">
 
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <a href="/" class=" text-dark text-decoration-none">
               <span class="fs-4">Info société</span>
             </a>
           </div>
           <div class="col-6">
 
-            <form class="input-group input-group-lg mb-3 " action="{{ path("recherchebyparam") }}" method="get">
-              <input type="text" class="form-control" name="input" placeholder="Dénomination entreprise, N°SIREN, N°SIRET"></input>
-              <div class="input-group-append input-group-lg">
+            <form class=" input-group input-group-md  " action="{{ path("recherchebyparam") }}" method="get">
+              <input type="text" class="form-control" name="denomination" placeholder="Dénomination entreprise, N°SIREN, N°SIRET"></input>
+              <div class="input-group-append input-group-md ">
                 <button type="submit" class="btn btn-primary">Rechercher</button>
               </div>
             </form>
@@ -78,19 +35,19 @@
     <div class="jumbotron p-4 bg-cyan ">
       <div class="container bg-white my-5 p-5 rounded-3 border">
         <div class="row">
-          <div class="col-4">
+          <div class="col-4-lg col-12-md">
             <h1 class="text-h1 text-center ">{{ data.denomination }}</h2>
             <h2 class="text-center text-h2 text-muted">{{ data.siren }}</h2>
           </div>
 
-          <div class="col-8 d-flex justify-content-start">
+          <div class="col-8-lg col-12-md d-flex justify-content-start">
             <table>
               {% for key, value in importantData %}
                 <tr>
-                  <th class="px-5 py-2" >
+                  <th scope="row" class="px-3 py-2" >
                     {{ key }}
                   </th>
-                  <td class="px-5 py-2">
+                  <td class="px-3 py-2">
                     {{ value }}
                   </td>
                 </tr>
@@ -103,7 +60,7 @@
 
 
     <div class="row d-flex justify-content-between">
-      <div class="col-6 d-flex justify-content-center">
+      <div class="col-6-lg col-12-md d-flex justify-content-center">
         <div class="col-9 m-5 ">
           <div class="container bg-white p-5 rounded-3 ">
 
@@ -126,7 +83,7 @@
         </div>
       </div>
 
-      <div class="col-6 d-flex justify-content-center">
+      <div class="col-6-lg col-12-md d-flex justify-content-center">
         <div class="col-9 m-5">
           <div class="container bg-white p-5 rounded-3 ">
 
@@ -149,5 +106,5 @@
         </div>
       </div>
     </div>
-
+  </div>
   {% endblock %}

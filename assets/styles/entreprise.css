@@ -1,0 +1,46 @@
+
+  .example-wrapper {
+    margin: 1em auto;
+    max-width: 800px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+  }
+  .example-wrapper code {
+    background: #F5F5F5;
+    padding: 2px 6px;
+  }
+  .header-div {
+    height: 65vh;
+    weight: 100vw;
+    padding: 2rem;
+    background: #ffffff;
+  }
+  .header-interior {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    background: #000000;
+    display: flex;
+    align-self: center;
+  }
+  .bg-cyan {
+    background: #5585D3;
+  }
+  .text-h1 {
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  .text-h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #858585;
+  }
+
+  .information-juridique-title {
+    font-size: 1.3rem;
+    color: #5585D3;
+  }
+  .information-juridique-text {
+    font-size: 1rem;
+    color: #000000;
+  }
