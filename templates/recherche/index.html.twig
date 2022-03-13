@@ -2,12 +2,9 @@
 
 {% block title %}Recherche société{% endblock %}
 
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .rounded-30 { border-radius:30px; }
-</style>
+
 
 <div class="container py-4">
     <header class="pb-3 mb-4 border-bottom">
@@ -17,20 +14,20 @@
     </header>
 
     <div class="p-5 mb-4 bg-light rounded-3 ">
-      <div class="container-fluid py-5  ">
+      <div class="container-fluid py-5 ">
 
       <div class="row justify-content-md-center">
-        <div class="col-auto">
+        <div class="col-12">
           <h1 class="display-5 fw-bold text-center">Toute l'information des entreprises</h1>
           <p class="col-md-12 fs-4 text-center">Gratuite, intelligente, complète</p>
         </div>
       </div>
 
         <div class="row justify-content-md-center">
-          <div class="col-6">
+          <div class="col-auto">
 
             <form class="input-group input-group-lg mb-3 " action="{{ path("recherchebyparam") }}" method="get">
-              <input type="text" class="form-control" name="input" value="{{inputText}}">  </input>
+              <input type="text" class="form-control" name="denomination" value="{{inputText}}">  </input>
               <div class="input-group-append input-group-lg">
                 <button type="submit" class="btn btn-primary">Rechercher</button>
               </div>
@@ -39,10 +36,10 @@
           </div>
         </div>
 
-
       </div>
     </div>
-  </div>
+</div>
+
 <div class="container py-4">
 
 {% if entrepriseList|length > 0 %}
@@ -50,10 +47,10 @@
   {% for key,entreprise in entrepriseList %}
 
 
-      <div class="p-5 mb-4 bg-light rounded-30">
+      <div class="p-5 mb-4 bg-light rounded-3">
         <div class="row">
           <div class="col-auto">
-          <a href="/entreprise/{{entreprise.siren}}" class="text-reset text-decoration-none">
+          <a href="/entreprise/{{entreprise.siren}}" class="text-decoration-none">
             <h2 class=" fw-bold ">{{ key }}</h2>
             <p class=" fw-bold">N°SIREN : {{entreprise.siren }} </p>
           </a>
