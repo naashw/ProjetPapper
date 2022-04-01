@@ -21,7 +21,6 @@ class EntrepriseController extends AbstractController
       return $this->redirectToRoute("entrepriseSearch", array("slug"=>$input ));
     }
 
- //test 
     #[Route('/{slug}', name: 'Search')]
     public function EntrepriseSearch($slug, CallApiService $callApiService): Response
     {
